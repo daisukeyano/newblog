@@ -1,0 +1,254 @@
+/* simple_blog/style.css */
+
+/* Tailwind CSS のデフォルトを上書きする可能性のある基本設定 */
+body {
+    font-family: 'Newsreader', "Noto Sans", sans-serif;
+    background-color: #fff; /* デフォルトは白 */
+    color: #111418; /* デフォルトのテキスト色 */
+    line-height: 1.7; /* 全体的な行間を広げる */
+}
+
+/* 管理ページへの固定ボタン */
+.admin-fixed-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #007bff; /* 元のボタン色を参考 */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.2;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    z-index: 1000;
+}
+
+.admin-fixed-button:hover {
+    background-color: #0056b3; /* ホバー時の色 */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* カスタムスクロールバー非表示 */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Markdownの基本的なスタイリング */
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
+    font-weight: bold;
+    margin-top: 2em; /* 見出し上のマージンを少し増やす */
+    margin-bottom: 1em; /* 見出し下のマージンを増やす */
+    line-height: 1.4; /* 見出しの行間を少し広げる */
+    color: #111418;
+}
+.post-content h1 { font-size: 2.5em; }
+.post-content h2 { font-size: 2em; }
+.post-content h3 { font-size: 1.5em; }
+.post-content p {
+    margin-bottom: 1.5em; /* 段落下のマージンを増やす */
+    line-height: 1.7; /* 段落の行間を広げる */
+}
+.post-content ul, .post-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5em; /* リスト下のマージンを増やす */
+    list-style-type: disc;
+    line-height: 1.7; /* リスト全体の行間を広げる */
+}
+.post-content ul li, .post-content ol li { /* リストアイテム間のスペースを確保 */
+    margin-bottom: 0.5em; 
+}
+.post-content ol {
+    list-style-type: decimal;
+}
+.post-content blockquote {
+    border-left: 4px solid #f0f2f5;
+    padding-left: 1rem;
+    margin-left: 1rem;
+    font-style: italic;
+    color: #60758a;
+    margin-bottom: 1.5em; /* ブロッククォート下のマージンを増やす */
+    line-height: 1.7; /* ブロッククォートの行間を広げる */
+}
+.post-content pre {
+    background-color: #f0f2f5;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    margin-bottom: 1.5em; /* preタグ下のマージンを増やす */
+    margin-left: 1rem;
+    margin-right: 1rem;
+    line-height: 1.5; /* preタグ内の行間を調整 */
+}
+.post-content code {
+    background-color: #e6e8eb;
+    padding: 0.2em 0.4em;
+    border-radius: 0.3rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto; /* 画像の上下マージンを増やす */
+    border-radius: 0.5rem;
+}
+.post-content a {
+    color: #007bff;
+    text-decoration: underline;
+}
+.post-content a:hover {
+    text-decoration: none;
+}
+
+/* Admin / Edit ページのフォームスタイル */
+.form-container {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="file"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #333;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.form-group input[type="file"] {
+    padding: 8px;
+}
+
+.form-group textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #bbb;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* レスポンシブ調整 - admin/edit フォーム */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+    }
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
